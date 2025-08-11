@@ -1,0 +1,50 @@
+Removed Pin From Net: NetName=MCU VDD Pin=C?-2
+Removed Member From Class: ClassName=Main Member=C?
+Removed Member From Class: ClassName=PPG Member=U?
+Change Component Designator: OldDesignator=C? NewDesignator=C2
+Change Component Designator: OldDesignator=C? NewDesignator=C5
+Change Component Designator: OldDesignator=C? NewDesignator=C7
+Change Component Designator: OldDesignator=C? NewDesignator=C8
+Change Component Designator: OldDesignator=C? NewDesignator=C9
+Change Component Designator: OldDesignator=C? NewDesignator=C11
+Change Component Designator: OldDesignator=C? NewDesignator=C12
+Change Component Designator: OldDesignator=C? NewDesignator=C13
+Change Component Designator: OldDesignator=C? NewDesignator=C15
+Change Component Designator: OldDesignator=C? NewDesignator=C16
+Change Component Designator: OldDesignator=U? NewDesignator=U3
+Change Component Designator: OldDesignator=U? NewDesignator=U5
+Change Component Designator: OldDesignator=U? NewDesignator=U6
+Add Pin To Net: Unknown Pin: Pin C3-1
+Add Pin To Net: Unknown Pin: Pin C3-2
+Added Pin To Net: NetName=GND Pin=C5-2
+Add Pin To Net: Unknown Pin: Pin C6-1
+Add Pin To Net: Unknown Pin: Pin C6-2
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC12_1
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=NetC8_1 Pin=U3-3
+Added Net: Name=NetC8_1
+Added Pin To Net: NetName=NetC16_1 Pin=C16-1
+Added Pin To Net: NetName=NetC16_1 Pin=U6-3
+Added Net: Name=NetC16_1
+Add Net: Net with name "Vin" already exists
+Added Member To Class: ClassName=Main Member=Component C1 GRM155R71C104KA88J
+Added Member To Class: ClassName=Main Member=Component C2 C0402C104K3RACTU
+Add Class Member: Failed to add class member : Component C3 Capacitor
+Added Member To Class: ClassName=Main Member=Component C5 C0402C104K3RACTU
+Add Class Member: Failed to add class member : Component C6 Capacitor
+Added Member To Class: ClassName=Main Member=Component C7 C0402C104K3RACTU
+Added Member To Class: ClassName=Main Member=Component C8 C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C9 C0402C104K3RACTU
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Added Member To Class: ClassName=PPG Member=Component C12 C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C13 C0402C104K3RACTU
+Add Class Member: Failed to add class member : Component C14 Capacitor
+Added Member To Class: ClassName=PPG Member=Component C15 C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C16 C0402C104K3RACTU
+Added Member To Class: ClassName=Main Member=Component U1 STM32WB5MMGH6TR
+Added Member To Class: ClassName=PPG Member=Component U5 LK112SM18TR
+Added Member To Class: ClassName=PPG Member=Component U6 LK112SM18TR

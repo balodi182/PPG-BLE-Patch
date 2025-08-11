@@ -1,0 +1,26 @@
+Removed Pin From Net: NetName=1.8DVDD Pin=C13-1
+Removed Pin From Net: NetName=Vin Pin=D4-2
+Removed Pin From Net: NetName=Vin Pin=D5-4
+Removed Pin From Net: NetName=Vin Pin=D9-2
+Removed Pin From Net: NetName=1.8DVDD Pin=U2-3
+Removed Pin From Net: NetName=1.8DVDD Pin=U6-4
+Added Pin To Net: NetName=1.8DVDD Pin=C6-1
+Added Pin To Net: NetName=1.8DVDD Pin=C7-1
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin D2-26
+Add Pin To Net: Unknown Pin: Pin D2-27
+Added Pin To Net: NetName=1.8DVDD Pin=D4-2
+Added Pin To Net: NetName=1.8DVDD Pin=D5-4
+Added Pin To Net: NetName=1.8DVDD Pin=D9-2
+Added Pin To Net: NetName=1.8DVDD Pin=D12-2
+Added Pin To Net: NetName=1.8DVDD Pin=R1-2
+Added Pin To Net: NetName=1.8DVDD Pin=U3-4
+Change Net Name : Old Net Name=1.8DVDD New Net Name=3V3
+Added Pin To Net: NetName=1.8DVDD Pin=C13-1
+Added Pin To Net: NetName=1.8DVDD Pin=U2-3
+Added Pin To Net: NetName=1.8DVDD Pin=U6-4
+Added Net: Name=1.8DVDD
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

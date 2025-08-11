@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=SPIMISO Pin=U1-20
+Removed Pin From Net: NetName=SPISCK Pin=U1-21
+Removed Pin From Net: NetName=ECGint1 Pin=U1-22
+Removed Pin From Net: NetName=ECGint2 Pin=U1-23
+Removed Pin From Net: NetName=ECGint3 Pin=U1-24
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Add Net: Net with name "Bat" already exists
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

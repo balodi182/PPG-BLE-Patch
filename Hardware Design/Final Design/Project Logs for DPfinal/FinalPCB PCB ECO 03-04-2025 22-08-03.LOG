@@ -1,0 +1,13 @@
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Add Pin To Net: Unknown Pin: Pin D2-26
+Add Pin To Net: Unknown Pin: Pin D2-27
+Add Net: Net with name "3V3" already exists
+Added Pin To Net: NetName=Vin1 Pin=C5-1
+Added Pin To Net: NetName=Vin1 Pin=L1-2
+Added Pin To Net: NetName=Vin1 Pin=U3-1
+Added Net: Name=Vin1
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

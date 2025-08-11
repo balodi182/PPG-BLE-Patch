@@ -1,0 +1,6 @@
+Removed Member From Class: ClassName=PPG Member=J1
+Change Component Footprint: Designator=D8 Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Change Component Footprint: Designator=D9 Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Change Component Footprint: Designator=D11 Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Add Net: Net with name "GPIO0" already exists
+Add Net: Net with name "GPIO1" already exists

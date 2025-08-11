@@ -1,0 +1,8 @@
+Add Pin To Net: Pin=J1-1 Old Net=NetJ1_1 New Net=ECGint2
+Add Pin To Net: Pin=J1-2 Old Net=NetJ1_2 New Net=ECGint3
+Add Pin To Net: Pin=J1-3 Old Net=NetJ1_3 New Net=ECGint4
+Add Pin To Net: Pin=J1-4 Old Net=NetJ1_4 New Net=ECGint5
+Add Pin To Net: Pin=J1-5 Old Net=NetJ1_5 New Net=3V3
+Add Pin To Net: Pin=J1-6 Old Net=NetJ1_6 New Net=GND
+Add Pin To Net: Pin=J3-9 Old Net=NetJ3_9 New Net=SPIMISO
+Add Pin To Net: Pin=J3-10 Old Net=NetJ3_10 New Net=SPISCK

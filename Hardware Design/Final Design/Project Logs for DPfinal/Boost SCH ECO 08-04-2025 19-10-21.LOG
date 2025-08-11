@@ -1,0 +1,9 @@
+Add Pin To Net: Pin=U1B-29 Old Net=NetU1_29 New Net=MPUInt1
+Add Pin To Net: Pin=U1B-30 Old Net=NetU1_30 New Net=MPUInt2
+Change Pin Designator/Name:  Old Designator=J1-01 Old Name=01 New Designator =06 New Name=06
+Change Pin Designator/Name:  Old Designator=J1-02 Old Name=02 New Designator =07 New Name=07
+Change Pin Designator/Name:  Old Designator=J1-03 Old Name=03 New Designator =01 New Name=01
+Change Pin Designator/Name:  Old Designator=J1-04 Old Name=04 New Designator =02 New Name=02
+Change Pin Designator/Name:  Old Designator=J1-05 Old Name=05 New Designator =03 New Name=03
+Change Pin Designator/Name:  Old Designator=J1-06 Old Name=06 New Designator =04 New Name=04
+Change Pin Designator/Name:  Old Designator=J1-07 Old Name=07 New Designator =05 New Name=05

@@ -1,0 +1,12 @@
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Add Pin To Net: Unknown Pin: Pin D2-26
+Add Pin To Net: Unknown Pin: Pin D2-27
+Added Pin To Net: NetName=I2C3_SCL Pin=U1-18
+Change Net Name : Old Net Name=Battery New Net Name=Vin
+Added Pin To Net: NetName=I2C1_SCL Pin=U1-14
+Added Net: Name=I2C1_SCL
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

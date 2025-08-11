@@ -1,0 +1,9 @@
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Add Net: Net with name "Bat" already exists
+Added Pin To Net: NetName=SPIMOSI Pin=U1-38
+Added Net: Name=SPIMOSI
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

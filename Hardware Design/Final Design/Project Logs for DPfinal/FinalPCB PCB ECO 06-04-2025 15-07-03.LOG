@@ -1,0 +1,17 @@
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Add Net: Net with name "Bat" already exists
+Added Pin To Net: NetName=ECGint1 Pin=U1-22
+Added Net: Name=ECGint1
+Added Pin To Net: NetName=ECGint2 Pin=U1-23
+Added Net: Name=ECGint2
+Added Pin To Net: NetName=ECGint3 Pin=U1-24
+Added Net: Name=ECGint3
+Added Pin To Net: NetName=ECGint4 Pin=U1-67
+Added Net: Name=ECGint4
+Added Pin To Net: NetName=ECGint5 Pin=U1-66
+Added Net: Name=ECGint5
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

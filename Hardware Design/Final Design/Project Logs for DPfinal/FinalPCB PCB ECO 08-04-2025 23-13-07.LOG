@@ -1,0 +1,18 @@
+Added Pin To Net: NetName=RST_BUT Pin=B1-1
+Added Pin To Net: NetName=GND Pin=B1-3
+Added Pin To Net: NetName=GND Pin=B1-4
+Added Pin To Net: NetName=Vin Pin=B2-1
+Added Pin To Net: NetName=Vin Pin=B2-2
+Add Pin To Net: Unknown Pin: Pin C2-1
+Add Pin To Net: Unknown Pin: Pin C2-2
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Added Pin To Net: NetName=Test1 Pin=U1-62
+Add Net: Net with name "Bat" already exists
+Added Pin To Net: NetName=Electrode Pin=J1-11
+Added Net: Name=Electrode
+Add Class Member: Failed to add class member : Component C2 C0402C104K3RACTU
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor

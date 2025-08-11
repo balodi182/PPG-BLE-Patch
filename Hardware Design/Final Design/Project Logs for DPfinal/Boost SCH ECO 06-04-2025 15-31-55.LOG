@@ -1,0 +1,8 @@
+Add Pin To Net: Pin=U1B-35 Old Net=NetU1_35 New Net=SPISCK
+Add Pin To Net: Pin=U1B-37 Old Net=NetU1_37 New Net=SPIMISO
+Add Pin To Net: Pin=U1B-38 Old Net=NetU1_38 New Net=SPIMOSI
+Add Pin To Net: Pin=U1B-39 Old Net=NetU1_39 New Net=ECGint1
+Add Pin To Net: Pin=U1B-40 Old Net=NetU1_40 New Net=ECGint2
+Add Pin To Net: Pin=U1B-41 Old Net=NetU1_41 New Net=ECGint3
+Add Pin To Net: Pin=U1B-42 Old Net=NetU1_42 New Net=ECGint4
+Add Pin To Net: Pin=U1A-43 Old Net=NetU1_43 New Net=ECGint5

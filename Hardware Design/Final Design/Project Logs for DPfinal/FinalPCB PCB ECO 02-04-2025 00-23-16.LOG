@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=MCU VDD Pin=C5-1
+Removed Pin From Net: NetName=GND Pin=C5-2
+Removed Pin From Net: NetName=GND Pin=C7-2
+Removed Pin From Net: NetName=GND Pin=C8-2
+Removed Pin From Net: NetName=GND Pin=U3-2
+Removed Pin From Net: NetName=MCU VDD Pin=U3-4
+Removed Member From Class: ClassName=Main Member=C5
+Removed Member From Class: ClassName=Main Member=C7
+Removed Member From Class: ClassName=Main Member=C8
+Removed Member From Class: ClassName=Main Member=U3
+Add Pin To Net: Unknown Pin: Pin C3-1
+Add Pin To Net: Unknown Pin: Pin C3-2
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Added Pin To Net: NetName=MCU VDD Pin=C13-1
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Added Pin To Net: NetName=MCU VDD Pin=U2-3
+Added Pin To Net: NetName=MCU VDD Pin=U6-4
+Change Net Name : Old Net Name=MCU VDD New Net Name=1.8DVDD
+Add Class Member: Failed to add class member : Component C3 Capacitor
+Add Class Member: Failed to add class member : Component C10 Capacitor
+Add Class Member: Failed to add class member : Component C14 Capacitor
