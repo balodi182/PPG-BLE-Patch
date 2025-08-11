@@ -31,9 +31,10 @@ The **Firmware** folder contains:
   - Data reception handled by `ServerRecieve22.py` (2-value mode) and `ServerRecieve66.py` (6-value FIFO mode).  
   - This setup enables quick testing of different register configurations to identify optimal sensor parameters.  
 - Each receive script generates a **CSV** file, which can be processed using the provided MATLAB scripts for signal analysis.  
-- **Final Firmware** — BLE streaming from the STM32WB55 to an Android application.  
+- **Final Firmware** — Complete STM32WB55 code is provided, which accesses data from the ADPD1080 AFE and streams it over BLE to an Android device for real-time monitoring and logging.
 
 ---
+
 
 ## 🛠 Hardware Design Files
 
