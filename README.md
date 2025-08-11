@@ -31,15 +31,15 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 ---
 
 ## 🎥 Assembly Video
-![Assembly Video](Images%20and%20Videos/assembly_video.mp4)
+![Assembly Video](Images%20and%20Videos/CompleteDesign.mp4)
 
 ---
 
 ## 📊 Results
 
-| Raw PPG Signal | Processed PPG | BLE Transmission Test |
+| Raw PPG Signal + Processed | Processed PPG | BLE Transmission Test |
 |----------------|--------------|-----------------------|
-| ![PPG Raw](Results/result_1.png) | ![Processed](Results/result_2.png) | ![BLE Test](Results/result_3.png) |
+| ![PPG Raw](Results/Pre and Post Filtered SIgnal.png) | ![Processed](Results/result_2.png) | ![BLE Test](Results/result_3.png) |
 
 ---
 
