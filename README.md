@@ -23,10 +23,23 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 ---
 
 ## 💻 Firmware Overview
-- **Evaluation Setup:** Initial ADPD1080 configuration  
-- **Data Sampling:** Interrupt-driven acquisition with timestamps  
-- **Final Firmware:** BLE data streaming to Android  
-- **MATLAB Scripts:** Signal processing and visualization  
+
+The **Firmware** folder contains:
+- **ADPDEvaluation and Setup** — Arduino code for ESP32 to interface with the ADPD1080 evaluation board and connect directly to a PC.  
+  - Uses `ADPD1080regconfig.py` to generate register values from parameterized input and instantly write them to the device.  
+  - ESP32 continuously fetches readings and sends them via a UDP server.  
+  - Data reception handled by `ServerRecieve22.py` (2-value mode) and `ServerRecieve66.py` (6-value FIFO mode).  
+  - This setup enables quick testing of different register configurations to identify optimal sensor parameters.  
+- Each receive script generates a **CSV** file, which can be processed using the provided MATLAB scripts for signal analysis.  
+- **Final Firmware** — BLE streaming from the STM32WB55 to an Android application.  
+
+---
+
+## 🛠 Hardware Design Files
+
+The **Hardware Design** folder contains:
+- **Evaluation Design** — Altium design files for the ADPD1080 evaluation board.  
+- **Final Module Design** — Altium design files for the integrated STM32WB + ADPD1080 AFE module, including battery support.  
 
 ---
 
@@ -39,12 +52,11 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 
 | Raw + Processed PPG Signal | Bandpass (0.5–5 Hz) FFT |
 |----------------------------|------------------------|
-| ![PPG Raw](Results/Pre%20and%20Post%20Filtered%20SIgnal.jpg) | ![Bandpass](Results/FFT-Bandpass.jpg) |
+| ![PPG Raw](Results/Pre%20and%20Post%20Filtered%20Signal.png) | ![Bandpass](Results/FFT-Bandpass.png) |
 
 ---
-
 
 ## 🚀 How to Use
 1. Clone this repository  
    ```bash
-   https://github.com/balodi182/PPG-BLE-Patch.git
+   git clone https://github.com/balodi182/PPG-BLE-Patch.git
