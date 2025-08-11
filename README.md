@@ -18,7 +18,7 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 ![PCB Layout Back](Images%20and%20Videos/PPGModuleSide.png)
 
 ### Assembled Board
-![Assembled Board](Images%20and%20Videos/Assembly_Images/assembled_board.png)
+![Assembled Board](Images%20and%20Videos/STMmodule.jpg)
 
 ---
 
