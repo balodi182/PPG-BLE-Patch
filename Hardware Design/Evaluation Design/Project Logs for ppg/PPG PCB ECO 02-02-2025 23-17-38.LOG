@@ -1,0 +1,11 @@
+Change Component Footprint: Designator=U? Old Footprint=RHA0040B_V New Footprint=FP-CP-28-5-IPC_A
+Change Component Comment : Designator=U? Old Comment=AFE4490RHAT New Comment=ADPD1080BCPZ
+Change Managed Component Library Link : Designator=U? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=20D662F0-4203-495A-AC1D-4CE1E6C88E04 New ItemGUID=2ECAF1E0-0D06-4724-BFCA-2D9CBBA969D9 Old RevisionGUID=9472B264-7B85-44B6-BA99-A205A45F4A64 New RevisionGUID=7CFC99B0-A506-41F1-9B97-F653A0E6B2EA
+Change component parameters: Designator = "U?" ("U?"); Footprint = "RHA0040B_V"; UniqueID = "\KKNYRFFP" ("\KKNYRFFP")
+Change component parameters (AddParameter): Name = "Lifecycle Status"; Value = "Production"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Lifecycle Status"; Value = "PRODUCTION"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "NexarPartId"; Value = "94414782"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "28"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RoHS"; Value = "Non-Compliant"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Schedule B"; Value = "8542390000"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=PPG Member=Component U? ADPD1080BCPZ

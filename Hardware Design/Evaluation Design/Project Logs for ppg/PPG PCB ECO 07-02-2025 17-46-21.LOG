@@ -1,0 +1,19 @@
+Change Component Footprint: Designator=D1 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D2 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D3 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D4 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D6 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D7 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D8 Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Change Component Footprint: Designator=D9 Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Change Component Footprint: Designator=D11 Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Change Component Designator: OldDesignator=C? NewDesignator=C1
+Change Component Designator: OldDesignator=C? NewDesignator=C2
+Change Component Designator: OldDesignator=C? NewDesignator=C3
+Change Component Designator: OldDesignator=C? NewDesignator=C4
+Change Component Designator: OldDesignator=C? NewDesignator=C5
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC4_1
+Added Member To Class: ClassName=PPG Member=Component C1 C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C2 C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C3 C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C4 C0402C104K3RACTU

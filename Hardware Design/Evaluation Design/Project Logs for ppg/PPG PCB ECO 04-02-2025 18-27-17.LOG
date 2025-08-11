@@ -1,0 +1,41 @@
+Change Footprint: Cannot match pads with new footprint in component :D? Footprint:WL-SBRW_1205_reverse mount
+Added Component: Designator=D?(VEMD2520X01)
+Add component (AddParameter): Name = "Category"; Value = "Photodiodes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "https://datasheet.ciiva.com/29166/vemd2500-29166944.pdf?src-supplier=Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://datasheet.ciiva.com/29166/vemd2500-29166944.pdf?src-supplier=Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2Description"; Value = "https://datasheet.ciiva.com/1336/1244281-1336385.pdf?src-supplier=Newark"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink2URL"; Value = "https://datasheet.ciiva.com/1336/1244281-1336385.pdf?src-supplier=Newark"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3Description"; Value = "https://datasheet.ciiva.com/4697/vemd2500-85200-4697600.pdf?src-supplier=Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink3URL"; Value = "https://datasheet.ciiva.com/4697/vemd2500-85200-4697600.pdf?src-supplier=Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4Description"; Value = "https://datasheet.ciiva.com/1249/1244281-1249016.pdf?src-supplier=Element14"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink4URL"; Value = "https://datasheet.ciiva.com/1249/1244281-1249016.pdf?src-supplier=Element14"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink5Description"; Value = "https://datasheet.ciiva.com/1336/1809617-1336118.pdf?src-supplier=Newark"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink5URL"; Value = "https://datasheet.ciiva.com/1336/1809617-1336118.pdf?src-supplier=Newark"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vishay"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "VEMD2520X01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pricing"; Value = "1=1.03, 10=0.631, 100=0.4279, 500=0.34802, 1000=0.32351, 2000=0.30343 (USD)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Stock"; Value = "25033"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "VEMD2520X01CT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "VEMD2520X01CT-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PD8 Pin=D?-A
+Added Pin To Net: NetName=PDC Pin=D?-C
+Added Member To Class: ClassName=PPG Member=Component C? CC0603JRX7R9BB104
+Added Member To Class: ClassName=PPG Member=Component C? CC0603JRX7R9BB104
+Added Member To Class: ClassName=PPG Member=Component C? CC0603JRX7R9BB104
+Added Member To Class: ClassName=PPG Member=Component C? CC0603JRX7R9BB104
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? VSMY2853G
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? VEMD2520X01
+Added Member To Class: ClassName=PPG Member=Component D? 156125RG73000
+Added Member To Class: ClassName=PPG Member=Component R? TC33X-2-103E
+Added Member To Class: ClassName=PPG Member=Component R? TC33X-2-103E
+Added Member To Class: ClassName=PPG Member=Component U? ADPD1080BCPZ
+Added Member To Class: ClassName=PPG Member=Component U? LP5907MFX-1.8/NOPB

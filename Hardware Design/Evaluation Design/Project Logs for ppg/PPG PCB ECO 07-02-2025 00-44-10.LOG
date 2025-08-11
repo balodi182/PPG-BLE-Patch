@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=LEDX1 Pin=R1-2
+Removed Pin From Net: NetName=LEDX3 Pin=R3-2
+Added Pin To Net: NetName=LEDX3 Pin=R1-2
+Added Pin To Net: NetName=LEDX1 Pin=R3-2

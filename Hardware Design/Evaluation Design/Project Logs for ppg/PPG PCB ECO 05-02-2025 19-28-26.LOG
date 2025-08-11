@@ -1,0 +1,15 @@
+Change Component Designator: OldDesignator=C? NewDesignator=C3
+Change Component Designator: OldDesignator=D? NewDesignator=D8
+Change Component Designator: OldDesignator=D? NewDesignator=D9
+Change Component Designator: OldDesignator=D? NewDesignator=D11
+Change Component Designator: OldDesignator=U? NewDesignator=U2
+Change Net Name : Old Net Name=NetC?_1 New Net Name=NetC3_1
+Change Net Name : Old Net Name=NetD?_1 New Net Name=NetD8_1
+Added Pin To Net: NetName=NetD9_1 Pin=D9-1
+Added Pin To Net: NetName=NetD9_1 Pin=R3-3
+Added Net: Name=NetD9_1
+Added Pin To Net: NetName=NetD11_1 Pin=D11-1
+Added Pin To Net: NetName=NetD11_1 Pin=R1-2
+Added Net: Name=NetD11_1
+Added Member To Class: ClassName=PPG Member=Component D8 150141GS73100
+Added Member To Class: ClassName=PPG Member=Component D11 150141GS73100

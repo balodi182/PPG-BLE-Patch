@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=NetD11_1 Pin=R1-2
+Removed Pin From Net: NetName=LEDX1 Pin=R1-3
+Added Pin To Net: NetName=NetD11_1 Pin=R1-1
+Added Pin To Net: NetName=LEDX1 Pin=R1-2
+Added Member To Class: ClassName=PPG Member=Component D8 150141GS73100
+Added Member To Class: ClassName=PPG Member=Component D9 150141GS73100
+Added Member To Class: ClassName=PPG Member=Component D11 150141GS73100

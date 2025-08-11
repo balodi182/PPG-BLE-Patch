@@ -1,0 +1,67 @@
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=FP-SFH_2430-MFG
+Change Component Footprint: Designator=D? Old Footprint=WL-SDCB_1206 New Footprint=FP-SFH_2430-MFG
+Change Component Comment : Designator=D? Old Comment=1541201EEA400 New Comment=SFH 2430-Z
+Change Component Comment : Designator=D? Old Comment=1541201EEA400 New Comment=SFH 2430-Z
+Change Managed Component Library Link : Designator=D? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=D6E67616-F340-4C03-8081-8B9DBDF75A05 New ItemGUID=B80C6848-62FE-46CB-9776-A189EB5257FB Old RevisionGUID=78E40D10-FA03-4FAB-AF20-C780EE73FB4B New RevisionGUID=C8D6973D-97BD-42E0-8AC9-92CA3D249AA5
+Change Managed Component Library Link : Designator=D? Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=D6E67616-F340-4C03-8081-8B9DBDF75A05 New ItemGUID=B80C6848-62FE-46CB-9776-A189EB5257FB Old RevisionGUID=78E40D10-FA03-4FAB-AF20-C780EE73FB4B New RevisionGUID=C8D6973D-97BD-42E0-8AC9-92CA3D249AA5
+Change component parameters: Designator = "D?" ("D?"); Footprint = "WL-SDCB_1206"; UniqueID = "\JBZVGYEZ" ("\JBZVGYEZ")
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Dark Current"; Value = "100pA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Diode Type"; Value = "PIN"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Fall Time"; Value = "200us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "100mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "1.2V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "4.5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "100°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Power Dissipation"; Value = "150mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Voltage (DC)"; Value = "6V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-40°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "1500"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Response Time"; Value = "200us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Voltage (DC)"; Value = "6V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rise Time"; Value = "200us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Viewing Angle"; Value = "120°"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Wavelength"; Value = "570nm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "4mm"; VariantName = "[No Variations]"
+Change component parameters: Designator = "D?" ("D?"); Footprint = "WL-SDCB_1206"; UniqueID = "\IEGIVRSL" ("\IEGIVRSL")
+Change component parameters (AddParameter): Name = "Case/Package"; Value = "SMD/SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Dark Current"; Value = "100pA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Diode Type"; Value = "PIN"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Fall Time"; Value = "200us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Current"; Value = "100mA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Forward Voltage"; Value = "1.2V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "1.2mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Length"; Value = "4.5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Operating Temperature"; Value = "100°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Power Dissipation"; Value = "150mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Max Reverse Voltage (DC)"; Value = "6V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Min Operating Temperature"; Value = "-40°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mount"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of Pins"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Quantity"; Value = "1500"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Radiation Hardening"; Value = "No"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Response Time"; Value = "200us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Reverse Voltage (DC)"; Value = "6V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rise Time"; Value = "200us"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Viewing Angle"; Value = "120°"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Wavelength"; Value = "570nm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Width"; Value = "4mm"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=PPG Member=Component D? SFH 2430-Z
+Added Member To Class: ClassName=PPG Member=Component D? 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D? 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D? 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D? SFH 2430-Z
+Added Member To Class: ClassName=PPG Member=Component D? 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D? 1541201EEA400

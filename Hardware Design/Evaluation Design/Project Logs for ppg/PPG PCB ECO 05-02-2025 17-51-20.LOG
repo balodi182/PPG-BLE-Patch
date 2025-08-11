@@ -1,0 +1,21 @@
+Change Component Footprint: Designator=D? Old Footprint=WL-SMTW_3528 New Footprint=WL-SMTW_3528
+Change Component Designator: OldDesignator=D? NewDesignator=D1
+Change Component Designator: OldDesignator=D? NewDesignator=D2
+Change Component Designator: OldDesignator=D? NewDesignator=D3
+Change Component Designator: OldDesignator=D? NewDesignator=D4
+Change Component Designator: OldDesignator=D? NewDesignator=D5
+Change Component Designator: OldDesignator=D? NewDesignator=D6
+Change Component Designator: OldDesignator=D? NewDesignator=D7
+Change Component Designator: OldDesignator=D? NewDesignator=D8
+Change Component Designator: OldDesignator=D? NewDesignator=D10
+Change Component Designator: OldDesignator=D? NewDesignator=D11
+Change Net Name : Old Net Name=NetD?_K New Net Name=NetD11_K
+Added Member To Class: ClassName=PPG Member=Component D1 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D2 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D3 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D4 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D5 SFH 2430-Z
+Added Member To Class: ClassName=PPG Member=Component D6 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D7 1541201EEA400
+Added Member To Class: ClassName=PPG Member=Component D8 150141GS73100
+Added Member To Class: ClassName=PPG Member=Component D11 APTR3216F3C

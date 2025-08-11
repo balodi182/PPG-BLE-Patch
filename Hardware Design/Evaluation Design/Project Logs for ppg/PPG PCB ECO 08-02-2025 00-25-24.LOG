@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=GND Pin=J?-1
+Removed Pin From Net: NetName=GND Pin=J?-2
+Removed Pin From Net: NetName=+5V Pin=J?-3
+Removed Pin From Net: NetName=GPIO1 Pin=J?-4
+Removed Pin From Net: NetName=GPIO0 Pin=J?-5
+Removed Pin From Net: NetName=SDA Pin=J?-6
+Removed Pin From Net: NetName=SCL Pin=J?-7
+Removed Pin From Net: NetName=GND Pin=J?-8
+Change Component Footprint: Designator=D1 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D2 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D3 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D4 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D6 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Change Component Footprint: Designator=D7 Old Footprint=WL-SDCB_1206 New Footprint=WL-SDCB_1206
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=GND Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U3-2
+Added Member To Class: ClassName=PPG Member=Component C? C0402C104K3RACTU
+Added Member To Class: ClassName=PPG Member=Component C? C0402C104K3RACTU
