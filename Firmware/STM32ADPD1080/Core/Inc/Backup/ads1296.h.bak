@@ -1,0 +1,105 @@
+/**
+  ******************************************************************************
+  * @file           : ads1296.h
+  * @brief          : Header file for ADS1296 bioelectric signal measurement functions
+  ******************************************************************************
+  * @attention
+  *
+  * ADS1296 Bioelectric Signal Measurement Driver
+  *
+  ******************************************************************************
+  */
+
+#ifndef ADS1296_H_
+#define ADS1296_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include <stdint.h>
+#include <stddef.h>
+
+/* Public defines ------------------------------------------------------------*/
+// ADS1296 Commands
+#define ADS1296_CMD_WAKEUP  0x02
+#define ADS1296_CMD_STANDBY 0x04
+#define ADS1296_CMD_RESET   0x06
+#define ADS1296_CMD_START   0x08
+#define ADS1296_CMD_STOP    0x0A
+#define ADS1296_CMD_RDATAC  0x10
+#define ADS1296_CMD_SDATAC  0x11
+#define ADS1296_CMD_RDATA   0x12
+#define ADS1296_CMD_RREG    0x20
+#define ADS1296_CMD_WREG    0x40
+
+// ADS1296 Register Addresses
+#define ADS1296_REG_ID      0x00
+#define ADS1296_REG_CONFIG1 0x01
+#define ADS1296_REG_CONFIG2 0x02
+#define ADS1296_REG_CONFIG3 0x03
+#define ADS1296_REG_LOFF    0x04
+#define ADS1296_REG_CH1SET  0x05
+#define ADS1296_REG_CH2SET  0x06
+#define ADS1296_REG_CH3SET  0x07
+#define ADS1296_REG_CH4SET  0x08
+#define ADS1296_REG_CH5SET  0x09
+#define ADS1296_REG_CH6SET  0x0A
+
+/* External clock frequency (2.048 MHz) */
+#define EXT_CLK_FREQ 2048000
+
+/* Public typedef ------------------------------------------------------------*/
+/* Public variables ----------------------------------------------------------*/
+extern volatile uint8_t g_ads_id;
+extern volatile uint8_t g_config1;
+extern volatile uint8_t g_config2;
+extern volatile uint8_t g_config3;
+extern volatile uint8_t g_ch1set;
+extern volatile uint8_t g_ch2set;
+extern volatile int32_t g_channel_values[6];
+extern volatile int32_t raw_ch1;
+extern volatile int32_t raw_ch2;
+extern volatile int32_t raw_ch3;
+extern volatile int32_t raw_ch4;
+extern volatile int32_t raw_ch5;
+extern volatile int32_t raw_ch6;
+
+extern volatile uint8_t g_spi_status;
+extern volatile uint8_t g_init_complete;
+
+// Debug counters
+extern volatile uint32_t g_ads_send_cmd_count;
+extern volatile uint32_t g_ads_read_reg_count;
+extern volatile uint32_t g_ads_write_reg_count;
+extern volatile uint32_t g_ads_hw_reset_count;
+extern volatile uint32_t g_setup_ext_clk_count;
+extern volatile uint32_t g_process_data_count;
+extern volatile uint32_t g_spi_tx_count;
+extern volatile uint32_t g_spi_rx_count;
+extern volatile uint32_t g_cs_toggle_count;
+extern volatile uint32_t g_spi_error_count;
+extern volatile uint32_t g_debug_stage_count;
+extern volatile uint32_t g_drdy_triggered_count;
+extern volatile int g_debug_stage;
+extern  volatile uint8_t g_data_ready_flag ;
+extern volatile uint32_t drdy_captured_count ;
+/* Public function prototypes ------------------------------------------------*/
+void ads1296_init_per_datasheet(void);
+uint8_t ads1296_read_register(uint8_t reg_addr);
+void ads1296_write_register(uint8_t reg_addr, uint8_t value);
+void ads1296_read_data(uint8_t *data, size_t length);
+void ads1296_send_command(uint8_t command);
+void ads1296_hardware_reset(void);
+void ads1296_begin_transaction(void);
+void ads1296_end_transaction(void);
+void setup_external_clock(void);
+void process_bioelectric_data(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* ADS1296_H_ */

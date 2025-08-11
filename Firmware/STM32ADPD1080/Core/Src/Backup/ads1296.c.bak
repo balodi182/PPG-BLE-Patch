@@ -1,0 +1,478 @@
+/**
+  ******************************************************************************
+  * @file           : ads1296.c
+  * @brief          : ADS1296 bioelectric signal measurement functions
+  ******************************************************************************
+  * @attention
+  *
+  * ADS1296 Bioelectric Signal Measurement Driver
+  *
+  ******************************************************************************
+  */
+
+/* Includes ------------------------------------------------------------------*/
+#include "ads1296.h"
+#include "spi.h"
+
+#include "gpio.h"
+#include <string.h>
+
+/* Private variables ---------------------------------------------------------*/
+/* Debug counters */
+volatile uint32_t g_ads_send_cmd_count = 0;
+volatile uint32_t g_ads_read_reg_count = 0;
+volatile uint32_t g_ads_write_reg_count = 0;
+volatile uint32_t g_ads_hw_reset_count = 0;
+volatile uint32_t g_setup_ext_clk_count = 0;
+volatile uint32_t g_process_data_count = 0;
+volatile uint32_t g_spi_tx_count = 0;
+volatile uint32_t g_spi_rx_count = 0;
+volatile uint32_t g_cs_toggle_count = 0;
+volatile uint32_t g_spi_error_count = 0;
+volatile uint32_t g_debug_stage_count = 0;
+volatile uint32_t g_drdy_triggered_count = 0;
+volatile int g_debug_stage = 0;
+
+/* Global ADS1296 data variables */
+volatile uint8_t g_ads_id = 0;
+volatile uint8_t g_config1 = 0;
+volatile uint8_t g_config2 = 0;
+volatile uint8_t g_config3 = 0;
+/* Individual channel setting variables */
+volatile uint8_t g_ch1set = 0;
+volatile uint8_t g_ch2set = 0;
+volatile uint8_t g_ch3set = 0;
+volatile uint8_t g_ch4set = 0;
+volatile uint8_t g_ch5set = 0;
+volatile uint8_t g_ch6set = 0;
+
+volatile int32_t raw_ch1 = 0;
+volatile int32_t raw_ch2 = 0;
+volatile int32_t raw_ch3 = 0;
+volatile int32_t raw_ch4 = 0;
+volatile int32_t raw_ch5 = 0;
+volatile int32_t raw_ch6 = 0;
+
+volatile uint8_t g_spi_status = 0;
+volatile uint8_t g_init_complete = 0;
+volatile uint8_t g_data_ready_flag=0 ;
+volatile uint32_t drdy_captured_count ;
+
+/* Functions -----------------------------------------------------------------*/
+
+/**
+ * @brief  Send command to ADS1296
+ * @param  command: Command byte to send
+ * @retval None
+ */
+void ads1296_send_command(uint8_t command) {
+    g_ads_send_cmd_count++;
+
+    // Assert CS with proper timing
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_RESET); // CS low
+
+    // Use minimal delay - ADS1296 typically needs only ~10ns between CS assertion and first clock
+    // Instead of HAL_Delay(1) which is 1ms (too long), use NOPs for a few cycles
+    __NOP(); __NOP(); __NOP(); __NOP();
+
+    HAL_StatusTypeDef status = HAL_SPI_Transmit(&hspi2, &command, 1, HAL_MAX_DELAY);
+    g_spi_tx_count++;
+
+    if (status != HAL_OK) {
+        g_spi_error_count++;
+    }
+
+    // Minimal delay before CS deassert
+    __NOP(); __NOP(); __NOP(); __NOP();
+
+
+
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_SET); // CS high
+}
+
+/**
+ * @brief  Begin SPI transaction by asserting CS
+ * @retval None
+ */
+void ads1296_begin_transaction(void) {
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_RESET);
+    __NOP(); __NOP(); __NOP(); __NOP();
+}
+
+/**
+ * @brief  End SPI transaction by deasserting CS
+ * @retval None
+ */
+void ads1296_end_transaction(void) {
+    __NOP(); __NOP(); __NOP(); __NOP();
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_SET);
+}
+
+/**
+ * @brief  Read a register from ADS1296
+ * @param  reg_addr: Register address to read
+ * @retval Register value
+ */
+uint8_t ads1296_read_register(uint8_t reg_addr) {
+    g_ads_read_reg_count++;
+
+    uint8_t cmd = ADS1296_CMD_RREG | reg_addr;
+    uint8_t num_bytes = 0x00; // Read one register
+    uint8_t result = 0;
+
+    // Proper CS timing with delays
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_RESET);
+    HAL_Delay(1);
+
+    // Send command and number of registers as a combined transaction
+    uint8_t command_packet[2] = {cmd, num_bytes};
+    HAL_StatusTypeDef status = HAL_SPI_Transmit(&hspi2, command_packet, 2, HAL_MAX_DELAY);
+    if (status != HAL_OK) {
+        g_spi_error_count++;
+    }
+
+    HAL_Delay(1); // Wait between send and receive
+
+    // Read result with timeout and error checking
+    status = HAL_SPI_Receive(&hspi2, &result, 1, HAL_MAX_DELAY);
+    if (status != HAL_OK) {
+        g_spi_error_count++;
+    }
+
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_SET);
+
+    return result;
+}
+
+/**
+ * @brief  Write to a register in ADS1296
+ * @param  reg_addr: Register address to write
+ * @param  value: Value to write
+ * @retval None
+ */
+void ads1296_write_register(uint8_t reg_addr, uint8_t value) {
+    g_ads_write_reg_count++;
+
+    uint8_t cmd = ADS1296_CMD_WREG | reg_addr;
+    uint8_t num_bytes = 0x00; // Write one register
+
+    ads1296_begin_transaction();
+
+    // Combined transmission where possible
+    HAL_SPI_Transmit(&hspi2, &cmd, 1, HAL_MAX_DELAY);
+    HAL_SPI_Transmit(&hspi2, &num_bytes, 1, HAL_MAX_DELAY);
+    HAL_SPI_Transmit(&hspi2, &value, 1, HAL_MAX_DELAY);
+
+    ads1296_end_transaction();
+
+    // Verify write with a read (with small delay between operations)
+    HAL_Delay(1);
+    uint8_t readback = ads1296_read_register(reg_addr);
+    if (value != readback) {
+        g_spi_error_count++;
+    }
+}
+
+/**
+ * @brief  Hardware reset of ADS1296
+ * @retval None
+ */
+void ads1296_hardware_reset(void) {
+    g_ads_hw_reset_count++;
+
+    // Toggle RESET pin
+    HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_RESET);
+    HAL_Delay(10);  // Hold reset low for 10ms
+    HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_SET);
+    HAL_Delay(20);  // Wait for device to settle after reset
+}
+
+/**
+ * @brief  Configure TIM1 for 2.048 MHz clock generation
+ * @retval None
+ */
+
+
+/**
+ * @brief  Initialize ADS1296 following the datasheet FSM
+ * @retval None
+ */
+void ads1296_init_per_datasheet(void) {
+    // Set up hardware pins properly first
+    HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(ADS_PWDN_GPIO_Port, ADS_PWDN_Pin, GPIO_PIN_SET);
+
+    // STAGE 1: External clock setup first
+    g_debug_stage = 1;
+    g_debug_stage_count++;
+
+    HAL_Delay(40); // Increased delay for clock stability
+
+    // STAGE 2: More thorough power cycling
+    g_debug_stage = 2;
+    g_debug_stage_count++;
+    // Power down completely
+    HAL_GPIO_WritePin(ADS_PWDN_GPIO_Port, ADS_PWDN_Pin, GPIO_PIN_RESET);
+    HAL_Delay(20); // Longer power down
+    // Power up
+    HAL_GPIO_WritePin(ADS_PWDN_GPIO_Port, ADS_PWDN_Pin, GPIO_PIN_SET);
+    HAL_Delay(20); // Longer wait after power up
+
+    // STAGE 3: More thorough Hardware reset
+    g_debug_stage = 3;
+    g_debug_stage_count++;
+    // Pulse reset more strongly
+    HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_RESET);
+    HAL_Delay(20);  // Hold reset low longer
+    HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_SET);
+    HAL_Delay(50);  // Longer wait after reset
+
+    // STAGE 4: Send SDATAC command with verification
+    g_debug_stage = 4;
+    g_debug_stage_count++;
+    ads1296_send_command(ADS1296_CMD_SDATAC);
+    HAL_Delay(10);
+
+    // Repeat SDATAC to ensure it's received (common practice)
+    ads1296_send_command(ADS1296_CMD_SDATAC);
+    HAL_Delay(10);
+
+    // STAGE 5: Verify device ID first before proceeding
+    g_debug_stage = 5;
+    g_debug_stage_count++;
+    g_ads_id = ads1296_read_register(ADS1296_REG_ID);
+    HAL_Delay(5);
+
+    // Verify again - double check
+    g_ads_id = ads1296_read_register(ADS1296_REG_ID);
+
+    // If ID is not correct, try a more aggressive reset routine
+    if (g_ads_id != 0x91) {
+        // More aggressive reset
+        HAL_GPIO_WritePin(ADS_PWDN_GPIO_Port, ADS_PWDN_Pin, GPIO_PIN_RESET);
+        HAL_Delay(100);
+        HAL_GPIO_WritePin(ADS_PWDN_GPIO_Port, ADS_PWDN_Pin, GPIO_PIN_SET);
+        HAL_Delay(100);
+
+        // Hard reset
+        HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_RESET);
+        HAL_Delay(100);
+        HAL_GPIO_WritePin(ADS_RESET_GPIO_Port, ADS_RESET_Pin, GPIO_PIN_SET);
+        HAL_Delay(100);
+
+        // Try SDATAC again
+        ads1296_send_command(ADS1296_CMD_SDATAC);
+        HAL_Delay(20);
+
+        // Check ID again
+        g_ads_id = ads1296_read_register(ADS1296_REG_ID);
+
+        if (g_ads_id != 0x91) {
+            // Still failed, set error flag but continue
+            g_spi_error_count++;
+            // We could return here, but let's try to proceed anyway
+        }
+    }
+
+    // STAGE 6: Configure reference buffer
+    g_debug_stage = 6;
+    g_debug_stage_count++;
+    // Internal reference and buffer
+    ads1296_write_register(ADS1296_REG_CONFIG3, 0xEC);
+    HAL_Delay(1);
+    g_config3 = ads1296_read_register(ADS1296_REG_CONFIG3);
+
+    // STAGE 7: Configure sampling rate and mode
+    g_debug_stage = 7;
+    g_debug_stage_count++;
+    // 0x96: 250 SPS, enabled oscillator
+    ads1296_write_register(ADS1296_REG_CONFIG1, 0x85);
+    HAL_Delay(1);
+    g_config1 = ads1296_read_register(ADS1296_REG_CONFIG1);
+
+    g_debug_stage = 8;
+    g_debug_stage_count++;
+    // Change from 0x10 (test signal) to 0x00 (normal operation)
+    ads1296_write_register(ADS1296_REG_CONFIG2, 0x00);
+    HAL_Delay(5);
+    g_config2 = ads1296_read_register(ADS1296_REG_CONFIG2);
+
+    // Verify normal mode is enabled
+    if (g_config2 != 0x00) {
+        // Try again
+        ads1296_write_register(ADS1296_REG_CONFIG2, 0x00);
+        HAL_Delay(5);
+        g_config2 = ads1296_read_register(ADS1296_REG_CONFIG2);
+    }
+
+    // STAGE 9: Configure channel settings - ONLY CH4 active, others off
+    g_debug_stage = 9;
+    g_debug_stage_count++;
+
+    // Turn off channels 1, 2, 3, 5, 6 (set to power-down mode: 0x80)
+    ads1296_write_register(ADS1296_REG_CH1SET, 0x80);
+    HAL_Delay(5);
+    g_ch1set = ads1296_read_register(ADS1296_REG_CH1SET);
+
+    ads1296_write_register(ADS1296_REG_CH2SET, 0x80);
+    HAL_Delay(5);
+    g_ch2set = ads1296_read_register(ADS1296_REG_CH2SET);
+
+    ads1296_write_register(ADS1296_REG_CH3SET, 0x80);
+    HAL_Delay(5);
+    g_ch3set = ads1296_read_register(ADS1296_REG_CH3SET);
+
+    // Set channel 4 active with gain x6 (0x50)
+    ads1296_write_register(ADS1296_REG_CH4SET, 0x60);
+    HAL_Delay(5);
+    g_ch4set = ads1296_read_register(ADS1296_REG_CH4SET);
+
+    ads1296_write_register(ADS1296_REG_CH5SET, 0x80);
+    HAL_Delay(5);
+    g_ch5set = ads1296_read_register(ADS1296_REG_CH5SET);
+
+    ads1296_write_register(ADS1296_REG_CH6SET, 0x80);
+    HAL_Delay(5);
+    g_ch6set = ads1296_read_register(ADS1296_REG_CH6SET);
+}
+
+/**
+ * @brief  Read data from ADS1296
+ * @param  data: Pointer to data buffer
+ * @param  length: Number of bytes to read
+ * @retval None
+ */
+void ads1296_read_data(uint8_t *data, size_t length) {
+    // This function will be used to read conversion results
+    HAL_SPI_Receive(&hspi2, data, length, HAL_MAX_DELAY);
+}
+
+
+
+void process_bioelectric_data(void) {
+  static uint8_t data_buffer[30];  // 3 status bytes + 6 channels * 3 bytes per channel + safety margin
+  static uint32_t last_drdy_time = 0;
+  static uint32_t drdy_interval = 0;
+  static uint32_t consecutive_errors = 0;
+  static uint32_t successful_reads = 0;
+  static uint32_t sample_count = 0;  // Add counter to track individual samples
+
+  // DC removal variables
+  static int32_t dc_offsets[6] = {0};
+  static const float alpha = 0.002f;
+
+  // We're in interrupt context - the DRDY signal has already been detected
+  uint32_t current_time = HAL_GetTick();
+
+  if (last_drdy_time != 0) {
+      drdy_interval = current_time - last_drdy_time;
+  }
+  last_drdy_time = current_time;
+
+  // Clear buffer first to help identify partial reads
+  memset(data_buffer, 0, sizeof(data_buffer));
+
+  // CRITICAL TIMING: Ensure we capture data immediately
+  HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_RESET);
+  __NOP(); __NOP(); __NOP(); __NOP();
+  __NOP(); __NOP(); __NOP(); __NOP();
+
+  // Read all data bytes with short timeout
+  HAL_StatusTypeDef status = HAL_SPI_Receive(&hspi2, data_buffer, 21, 10);
+  g_spi_rx_count++;
+
+  __NOP(); __NOP(); __NOP(); __NOP();
+  __NOP(); __NOP(); __NOP(); __NOP();
+  HAL_GPIO_WritePin(SPI1_CS_GPIO_Port, SPI1_CS_Pin, GPIO_PIN_SET);
+
+  // Check if SPI receive was successful
+  if (status != HAL_OK) {
+      g_spi_error_count++;
+      consecutive_errors++;
+
+      // Recovery logic if too many errors
+      if (consecutive_errors > 5) {
+          ads1296_send_command(ADS1296_CMD_SDATAC);
+          HAL_Delay(5);
+          ads1296_send_command(ADS1296_CMD_SDATAC);
+          HAL_Delay(2);
+
+          uint8_t id_check = ads1296_read_register(ADS1296_REG_ID);
+          if (id_check != 0x91) {
+              ads1296_hardware_reset();
+              HAL_Delay(20);
+              ads1296_init_per_datasheet();
+              consecutive_errors = 0;
+              return;
+          } else {
+              // Restart continuous mode
+              ads1296_send_command(ADS1296_CMD_RDATAC);
+              consecutive_errors = 0;
+          }
+      }
+      return; // Skip processing this data packet
+  }
+
+  // Reset error counter on successful read
+  consecutive_errors = 0;
+  successful_reads++;
+  sample_count++;  // Increment sample counter
+
+  // Validate status bytes - they should follow a certain pattern
+  if ((data_buffer[0] & 0xF0) != 0xC0) {
+      g_spi_error_count++;
+      return; // Skip this packet
+  }
+
+  // Process all active channels
+  for (int ch = 0; ch < 6; ch++) {
+      int offset = 3 + (ch * 3); // Calculate offset for each channel
+
+      // Extract raw value with sign extension
+      int32_t raw_value = ((int32_t)data_buffer[offset] << 16) |
+                         ((int32_t)data_buffer[offset+1] << 8) |
+                         data_buffer[offset+2];
+
+      // Sign extension for 24-bit to 32-bit
+      if (raw_value & 0x800000) {
+          raw_value |= 0xFF000000;
+      }
+
+      // Store the raw value
+      float signal = (float)raw_value;
+
+      // Apply DC offset removal
+      dc_offsets[ch] = (int32_t)((1.0f - alpha) * dc_offsets[ch] + alpha * raw_value);
+      float dc_removed = signal - (float)dc_offsets[ch];
+
+      // Final value (after DC removal only, no filters)
+      int32_t final_value = (int32_t)dc_removed;
+
+      // Assign to appropriate channel variable
+      switch (ch) {
+          case 0: raw_ch1 = final_value; break;
+          case 1: raw_ch2 = final_value; break;
+          case 2: raw_ch3 = final_value; break;
+          case 3: raw_ch4 = final_value; break;
+          case 4: raw_ch5 = final_value; break;
+          case 5: raw_ch6 = final_value; break;
+      }
+
+      // Also store in the global channel values array
+      g_channel_values[ch] = final_value;
+  }
+
+  g_process_data_count++;
+}
+
+/* Add this function to ads1296.c */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if(GPIO_Pin == ADS_DRDY_Pin)
+  {
+    g_data_ready_flag = 1;
+    drdy_captured_count++;
+  }
+}
