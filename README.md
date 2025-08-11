@@ -39,7 +39,7 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 
 | Raw + Processed PPG Signal | Bandpass (0.5–5 Hz) FFT |
 |----------------------------|------------------------|
-| ![PPG Raw](Results/Pre%20and%20Post%20Filtered%20Signal.png) | ![Bandpass](Results/FFT-Bandpass.png) |
+| ![PPG Raw](Results/Pre%20and%20Post%20Filtered%20SIgnal.jpg) | ![Bandpass](Results/FFT-Bandpass.jpg) |
 
 ---
 
