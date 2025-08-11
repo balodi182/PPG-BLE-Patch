@@ -47,4 +47,4 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 ## 🚀 How to Use
 1. Clone this repository  
    ```bash
-   git clone https://github.com/your-username/ppg-ecg-ble-patch.git
+   [git clone https://github.com/your-username/ppg-ecg-ble-patch.git](https://github.com/balodi182/PPG-BLE-Patch.git)
