@@ -31,17 +31,18 @@ Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it support
 ---
 
 ## 🎥 Assembly Video
-![Assembly Video](Images%20and%20Videos/CompleteDesign.mp4)
+[▶ Watch Assembly Video](Images%20and%20Videos/CompleteDesign.mp4)
 
 ---
 
 ## 📊 Results
 
-| Raw PPG Signal + Processed | Processed PPG | BLE Transmission Test |
-|----------------|--------------|-----------------------|
-| ![PPG Raw](Results/Pre and Post Filtered SIgnal.png) | ![Processed](Results/result_2.png) | ![BLE Test](Results/result_3.png) |
+| Raw + Processed PPG Signal | Bandpass (0.5–5 Hz) FFT |
+|----------------------------|------------------------|
+| ![PPG Raw](Results/Pre%20and%20Post%20Filtered%20Signal.png) | ![Bandpass](Results/FFT-Bandpass.png) |
 
 ---
+
 
 ## 🚀 How to Use
 1. Clone this repository  
