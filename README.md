@@ -1,6 +1,6 @@
 # Low-power Wireless PPG BLE Patch
 
-This project implements a **wearable patch** for physiological signal acquisition, focusing on **Photoplethysmography (PPG)** and **Electrocardiography (ECG)** with **Bluetooth Low Energy (BLE)** connectivity.  
+This project implements a **wearable patch** for physiological signal acquisition, focusing on **Photoplethysmography (PPG)** with **Bluetooth Low Energy (BLE)** connectivity.  
 Built around the **ADPD1080 Analog Front-End** and **STM32WB55 MCU**, it supports low-power operation from coin cells.
 
 ---
